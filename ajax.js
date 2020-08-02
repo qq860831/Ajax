@@ -10,3 +10,20 @@ xhr.send();  //傳送
 xhr.onload=() => {
     content.innerText= xhr.responseText;
 }
+
+// JSON
+var product = document.getElementById("product");
+var price = document.getElementById("price");
+
+var xhrJson = new XMLHttpRequest();
+
+xhrJson.open("GET","./data.json"); 
+xhrJson.send();  
+
+xhrJson.onload=() => {
+    // JSON.格式(想轉為JSON內容)
+    var json = JSON.parse(xhrJson.responseText);
+
+    product.innerText = json["product"];
+    price.innerText = json["price"];
+}
